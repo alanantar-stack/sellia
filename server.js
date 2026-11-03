@@ -4,6 +4,10 @@ import crypto from 'crypto';
 
 const app = express();
 app.use(express.json({ limit: '2mb' }));
+app.get('/', (req, res) => {
+  res.redirect('/index.html');
+});
+
 app.use(express.static('public'));
 const BASE_URL = (process.env.BASE_URL || 'https://openrouter.ai/api/v1').replace(/\/$/, '');
 const API_KEY = process.env.API_KEY;

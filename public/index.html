@@ -1,0 +1,52 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Sellia</title>
+<style>
+:root{--bg:#f3f7ee;--ink:#1b2a1f;--g:#2f9e63;--g2:#d9efe1;--p:#7b4fd1;--line:#c9d8cc}
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+main{max-width:720px;margin:0 auto;padding:20px 16px 80px}
+h1{font-size:2rem;margin:.2em 0}h2{margin-top:1.4em}
+.hero{display:flex;gap:12px;align-items:center}.cam{font-size:3rem}
+.msg{padding:10px 14px;border-radius:14px;margin:8px 0;max-width:85%;white-space:pre-wrap}
+.s{background:var(--g2)}.u{background:#fff;border:1px solid var(--line);margin-left:auto}
+.row{display:flex;gap:8px;margin-top:12px}input{flex:1;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit}
+button{background:var(--g);color:#fff;border:0;border-radius:10px;padding:12px 16px;font:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--p);outline-offset:2px}
+button.alt{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.item{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;margin:8px 0}
+.tag{display:inline-block;padding:2px 8px;border-radius:99px;font-size:.8rem;margin-right:6px}
+.atraer,.humanizar{background:#ffe1b8}.nutrir{background:#cfe6ff}.convertir{background:#d7f5c9}
+.hidden{display:none}.trial{position:relative;user-select:none;-webkit-user-select:none}
+.trial::after{content:"SELLIA · PRUEBA";position:absolute;inset:0;display:grid;place-items:center;font-size:2rem;font-weight:700;color:rgba(123,79,209,.15);transform:rotate(-20deg);pointer-events:none}
+pre{white-space:pre-wrap;font:inherit}
+</style></head><body><main>
+<div class="hero"><div class="cam" aria-hidden="true">🦎</div><div><h1>Sellia</h1><div>No te hace posts, te hace vender.</div></div></div>
+<section id="chat"><div id="log"></div>
+<div class="row"><input id="inp" placeholder="Escribile a Sellia…" aria-label="Mensaje"><button id="send">Enviar</button></div>
+<div class="row"><button id="prof" class="hidden">Ver mi perfil de marca</button></div></section>
+<section id="profile" class="hidden"><h2>Tu perfil de marca</h2><div id="pbox" class="item"></div><button id="cal">Armar mis calendarios</button></section>
+<section id="calendar" class="hidden"><h2>Calendario de contenido</h2><div id="cc"></div><h2>Calendario de historias</h2><div id="ch"></div></section>
+<section id="piece" class="hidden"><h2>Pieza</h2><div id="pbody" class="item trial"></div></section>
+</main><script>
+const $=i=>document.getElementById(i);
+const id=localStorage.sid||(localStorage.sid=crypto.randomUUID());
+const post=(u,b)=>fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({brandId:id,...b})}).then(r=>r.json());
+const esc=s=>String(s??'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const add=(t,c)=>{const d=document.createElement('div');d.className='msg '+c;d.textContent=t;$('log').append(d);d.scrollIntoView()};
+async function say(t){if(t!=='Hola')add(t,'u');const r=await post('/api/onboarding',{text:t});if(r.error)return add('Error: '+r.error,'s');add(r.reply,'s');if(r.done)$('prof').classList.remove('hidden')}
+$('send').onclick=()=>{const v=$('inp').value.trim();if(v){$('inp').value='';say(v)}};
+$('inp').onkeydown=e=>{if(e.key==='Enter')$('send').click()};
+$('prof').onclick=async()=>{$('prof').textContent='Pensando…';const p=await post('/api/profile',{});
+ const c=p.cliente_ideal||{};$('pbox').innerHTML=`<b>${esc(p.marca)}</b> · ${esc(p.industria)}<p><b>Problema:</b> ${esc(p.problema)}</p><p><b>Para quién:</b> ${esc(p.para_quien)}</p><p><b>Por qué esta marca:</b> ${esc(p.por_que_esta_marca)}</p><p><b>Cliente ideal:</b> ${esc(c.nombre)}: ${esc(c.descripcion)}</p><p><b>Dolores:</b> ${esc((c.dolores||[]).join('; '))}</p>`;
+ $('profile').classList.remove('hidden');$('prof').textContent='Ver mi perfil de marca'};
+$('cal').onclick=async()=>{$('cal').textContent='Armando…';const c=await post('/api/calendar',{});
+ $('cc').innerHTML='';c.contenido.forEach(p=>{const d=document.createElement('div');d.className='item';
+  d.innerHTML=`<span class="tag ${p.fase}">${esc(p.fase)}</span><span class="tag">${esc(p.formato)}</span> Día ${p.dia}<br><b>${esc(p.gancho)}</b><br><small>${esc(p.tema)}</small><div class="row"><button class="alt">Crear pieza</button></div>`;
+  d.querySelector('button').onclick=async e=>{e.target.textContent='Creando…';const r=await post('/api/copy',{piece:p});show(r);e.target.textContent='Crear pieza'};$('cc').append(d)});
+ $('ch').innerHTML=c.historias.map(h=>`<div class="item"><span class="tag ${h.fase}">${esc(h.fase)}</span> Día ${h.dia}: ${esc(h.idea)}</div>`).join('');
+ $('calendar').classList.remove('hidden');$('cal').textContent='Armar mis calendarios'};
+function show(r){const b=$('pbody');b.className='item'+(r.trial?' trial':'');
+ b.oncopy=r.trial?e=>e.preventDefault():null;b.oncontextmenu=r.trial?e=>e.preventDefault():null;
+ b.innerHTML=`<pre><b>Gancho:</b> ${esc(r.gancho)}\n\n<b>Problema:</b> ${esc(r.problema)}\n\n<b>Solución:</b> ${esc(r.solucion)}\n\n<b>CTA:</b> ${esc(r.cta)}\n\n${esc(r.copy)}\n\n${(r.slides||[]).map((s,i)=>`Slide ${i+1}: ${esc(s)}`).join('\n')}\n\n${esc(r.guion||'')}</pre>`;
+ $('piece').classList.remove('hidden');b.scrollIntoView()}
+say('Hola');
+</script></body></html>

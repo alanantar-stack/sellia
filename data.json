@@ -1,0 +1,256 @@
+{
+ "brands": {
+  "adadfde4-9fb4-44d0-b084-7466dea6b49b": {
+   "id": "adadfde4-9fb4-44d0-b084-7466dea6b49b",
+   "plan": "trial",
+   "transcript": [
+    {
+     "role": "user",
+     "content": "Hola"
+    },
+    {
+     "role": "assistant",
+     "content": "¡Hola! 👋 ¡Soy Sellia! Camb"
+    },
+    {
+     "role": "user",
+     "content": "Hola"
+    },
+    {
+     "role": "assistant",
+     "content": "¡Hola! 👋\n\nSoy Sellia, tu camaleona amiga experta en ventas. Cambio de color para adaptarme a cada marca: cercana, divertida, pero nunca infantil.\n\n¡Empezamos el onboarding! Responderé una pregunta corta por mensaje para averiguar absolutamente todo sobre la marca.\n\n**Pregunta 1:** ¿En qué rubro o industria trabaja la marca? (Ej: moda, tecnología, servicios, gastronomía, etc.)"
+    },
+    {
+     "role": "user",
+     "content": "Moda"
+    },
+    {
+     "role": "assistant",
+     "content": "¡Perfecto! 🎨\n\nEntendido: **Rubro = Moda**.\n\nAhora, pregunta corta número 2:\n\n**Pregunta 2:** ¿Qué tipo de moda o prenda principal ofrecen? (Ej: ropa urbana, alta costura, vestimenta laboral, accesorios, calzado, etc.)"
+    },
+    {
+     "role": "user",
+     "content": "Ropa urbana"
+    },
+    {
+     "role": "assistant",
+     "content": "¡Genial! 👟🧢\n\nEntendido: **Estilo = Ropa urbana**.\n\nPregunta corta número 3:\n\n**Pregunta 3:** ¿A qué público objetivo dirigen principalmente sus prendas? (Ej: hombres, mujeres, unisex; rangos de edad como 18-30, 30-45, etc.)"
+    },
+    {
+     "role": "user",
+     "content": "hombres 30-45"
+    },
+    {
+     "role": "assistant",
+     "content": "¡Perfecto! 👔\n\nEntendido: **Público objetivo = Hombres de 30 a 45 años**.\n\nPregunta corta número 4:\n\n**Pregunta 4:** ¿Qué hace único a su marca o qué los diferencia de la competencia? (Ej: calidad de materiales, diseño exclusivo, precio accesible, sostenibilidad, etc.)"
+    },
+    {
+     "role": "user",
+     "content": "diseño"
+    },
+    {
+     "role": "assistant",
+     "content": "¡Entendido! 🎨\n\nEntendido: **Diferencial principal = Diseño**.\n\nPregunta corta número 5:\n\n**Pregunta 5:** ¿Cuál es el precio promedio de sus prendas? (Ej: bajo, medio, alto, o rangos específicos)"
+    },
+    {
+     "role": "user",
+     "content": "medio"
+    },
+    {
+     "role": "assistant",
+     "content": "¡Perfecto! 💰\n\nEntendido: **Rango de precio = Medio**.\n\nPregunta corta número 6:\n\n**Pregunta 6:** ¿Por qué elegirían ustedes los clientes? ¿Cuál es el principal beneficio o valor que les ofrece?"
+    },
+    {
+     "role": "user",
+     "content": "empresa joven"
+    },
+    {
+     "role": "assistant",
+     "content": "¡Entendido! 🌱\n\nEntendido: **Motivo por el que los clientes los eligen = Empresa joven** (implícitamente sugiere frescura, innovación o cercanía).\n\nPregunta corta número 7:\n\n**Pregunta 7:** ¿Cuáles son las objeciones más comunes que escuchan al momento de vender? (Ej: \"es muy caro\", \"no encuentro mi talla\", \"dudo de la calidad\", etc.)"
+    },
+    {
+     "role": "user",
+     "content": "es muy caro"
+    },
+    {
+     "role": "assistant",
+     "content": "¡Entendido! 💸\n\nEntendido: **Objeción principal = \"Es muy caro\"**.\n\nPregunta corta número 8:\n\n**Pregunta 8:** ¿Qué tono de voz utilizan en sus redes sociales y comunicación? (Ej: formal, cercano, humorístico, inspirador, directo, etc.)"
+    },
+    {
+     "role": "user",
+     "content": "formal"
+    },
+    {
+     "role": "assistant",
+     "content": "¡Perfecto! 📧\n\nEntendido: **Tono de voz = Formal**.\n\nPregunta corta número 9:\n\n**Pregunta 9:** ¿En qué canales de ventas o marketing están trabajando actualmente? (Ej: Instagram, web propia, marketplaces, Facebook ads, boca a boca, etc.)"
+    },
+    {
+     "role": "user",
+     "content": "instagram"
+    },
+    {
+     "role": "assistant",
+     "content": "¡Genial! 📸\n\nEntendido: **Canal principal = Instagram**.\n\nPregunta corta número 10:\n\n**Pregunta 10:** ¿Qué tipo de contenido han publicado o realizado anteriormente? (Ej: fotos de producto, videos, testimonios, detrás de cámaras, etc.)"
+    },
+    {
+     "role": "user",
+     "content": "videos"
+    },
+    {
+     "role": "assistant",
+     "content": "¡Entendido! 📹\n\nEntendido: **Contenido previo = Videos**.\n\nPregunta corta número 11:\n\n**Pregunta 11:** ¿Cuál es el objetivo principal al contratar o usar estos servicios? (Buscan más ventas, más leads/clientes potenciales, o posicionarse como autoridad en el rubro.)"
+    },
+    {
+     "role": "user",
+     "content": "mas ventas"
+    },
+    {
+     "role": "assistant",
+     "content": "¡Perfecto! 📈\n\nEntendido: **Objetivo principal = Más ventas**.\n\nPregunta corta número 12:\n\n**Pregunta 12:** ¿Tienen algún otro detalle, meta o cosa importante que quieran que sepa sobre su marca o clientes?"
+    },
+    {
+     "role": "user",
+     "content": "no"
+    },
+    {
+     "role": "assistant",
+     "content": "¡Perfecto! 🎒\n\nTenemos suficiente información como para cerrar este onboarding. Gracias por tu tiempo y respuestas tan claras.\n\n****\n\n---\n**Resumen rápido de lo que averiguamos sobre la marca:**\n*   **Rubro:** Moda\n*   **Estilo:** Ropa urbana\n*   **Público:** Hombres 30-45\n*   **Diferencial:** Diseño\n*   **Precio:** Medio\n*   **Por qué los eligen:** Empresa joven\n*   **Objeción principal:** \"Es muy caro\"\n*   **Tono de voz:** Formal\n*   **Canales:** Instagram\n*   **Contenido previo:** Videos\n*   **Objetivo:** Más ventas"
+    }
+   ],
+   "profile": {
+    "marca": "No especificada (en construcción)",
+    "industria": "Moda",
+    "problema": "Falta de claridad viral y conversión en Instagram para ropa urbana masculina",
+    "para_quien": "Hombres de 30 a 45 años",
+    "por_que_esta_marca": "Empresa joven con enfoque en diseño propio que busca destacarse en un mercado medio",
+    "ofrece": [
+     "Ropa urbana con diseño distintivo",
+     "Estilo para hombres maduros pero con visión actual"
+    ],
+    "no_ofrece": [
+     "Moda rápida desechable",
+     "Estilos que no reflejan la calidad del diseño"
+    ],
+    "tono": "Formal cercano (adaptando la formalidad a un público de 30-45 sin ser infantil)",
+    "objetivo": "Aumentar las ventas a través de contenido viral y un embudo de ventas optimizado",
+    "cliente_ideal": {
+     "nombre": "El Hombre Urbano Consciente",
+     "descripcion": "Hombre entre 30 y 45 años que valora el estilo personal, probablemente profesional o emprendedor, que busca verse bien sin sacrificar comodidad ni romper la banca indiscriminadamente",
+     "dolores": [
+      "Siente que la moda urbana es demasiado juvenil o demasiado caro sin justificación",
+      "Dificultad para encontrar piezas que hablen de su etapa de vida"
+     ],
+     "deseos": [
+      "Vestirse con piezas que reflejen su éxito y madurez",
+      "Sentirse seguro y reconocido por su estilo"
+     ],
+     "objeciones": [
+      "'Es muy caro' (necesita comunicar el valor del diseño y la calidad)"
+     ],
+     "donde_esta": [
+      "Instagram",
+      "Búsqueda de tendencias fashion",
+      "Eventos sociales y laborales"
+     ]
+    }
+   },
+   "calendar": {
+    "contenido": [
+     {
+      "dia": 1,
+      "formato": "reel",
+      "fase": "atraer",
+      "tipo_gancho": "contra_la_corriente",
+      "tema": "Moda masculina 30-45",
+      "gancho": "Deja de vestir como si tuvieras 20: El error que cometen los hombres maduros al vestir urbano"
+     },
+     {
+      "dia": 2,
+      "formato": "carousel",
+      "fase": "nutrir",
+      "tipo_gancho": "error_a_evitar",
+      "tema": "3 piezas clave para el estilo",
+      "gancho": "Las 3 piezas que todo hombre urbano necesita (y las que deberías evitar)"
+     },
+     {
+      "dia": 3,
+      "formato": "video_camara",
+      "fase": "convertir",
+      "tipo_gancho": "resultado_primero",
+      "tema": "Calidad vs Precio",
+      "gancho": "¿Por qué esta camisa cuesta el doble? (Calidad que se nota al instante)"
+     },
+     {
+      "dia": 4,
+      "formato": "post",
+      "fase": "atraer",
+      "tipo_gancho": "lista",
+      "tema": "Accesorios",
+      "gancho": "5 accesorios que transforman un outfit urbano básico"
+     },
+     {
+      "dia": 5,
+      "formato": "reel",
+      "fase": "nutrir",
+      "tipo_gancho": "llamado_a_la_identidad",
+      "tema": "Profesional y urbano",
+      "gancho": "No eres un jefe, eres un hombre urbano: Tu estilo habla por ti"
+     },
+     {
+      "dia": 6,
+      "formato": "post",
+      "fase": "convertir",
+      "tipo_gancho": "bucle_abierto",
+      "tema": "Nueva colección",
+      "gancho": "La pieza que faltaba en tu guardarropa (y por qué se agotará rápido)"
+     },
+     {
+      "dia": 7,
+      "formato": "tour",
+      "fase": "convertir",
+      "tipo_gancho": "contra_la_corriente",
+      "tema": "Detrás de cámaras",
+      "gancho": "Detrás de la marca: Por qué cada costura cuenta (No es moda rápida)"
+     }
+    ],
+    "historias": [
+     {
+      "dia": 1,
+      "fase": "humanizar",
+      "idea": "Presentación del fundador: Por qué dejé mi trabajo estable para crear esta marca de ropa urbana."
+     },
+     {
+      "dia": 2,
+      "fase": "nutrir",
+      "idea": "Unboxing: Mostrando la calidad del tejido y los detalles de la nueva pieza."
+     },
+     {
+      "dia": 3,
+      "fase": "convertir",
+      "idea": "Testimonio: Un cliente cuenta cómo recibió cumplidos al vestir la pieza."
+     },
+     {
+      "dia": 4,
+      "fase": "humanizar",
+      "idea": "El proceso creativo: De la idea al boceto y luego a la prenda final."
+     },
+     {
+      "dia": 5,
+      "fase": "nutrir",
+      "idea": "Mitología de la moda: Desmintiendo 3 creencias comunes sobre el estilo masculino."
+     },
+     {
+      "dia": 6,
+      "fase": "convertir",
+      "idea": "Oferta exclusiva: Descuento por tiempo limitado para los seguidores de la historia."
+     },
+     {
+      "dia": 7,
+      "fase": "humanizar",
+      "idea": "Un vistazo a la vida real: Desafíos de emprender en la industria de la moda."
+     }
+    ]
+   }
+  }
+ }
+}

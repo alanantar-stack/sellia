@@ -1,24 +1,48 @@
-# Sellia MVP - OpenRouter
+# Sellia MVP - OpenRouter + Supabase
 
-## Configuracion
-1. Instalar Node.js 20.6 o superior.
-2. En esta carpeta, crear `.env` copiando `.env.example`.
-3. Reemplazar `API_KEY` por una clave nueva de OpenRouter (https://openrouter.ai/keys).
-4. No compartir ni subir `.env` a Git.
+## Requisitos
+- Node.js 20.6 o superior.
+- Un proyecto Supabase con la tabla `public.brands` creada.
+- Una API Key de OpenRouter.
 
-Variables:
+## Variables de entorno
+Copiá `.env.example` a `.env` y completá:
+
 - `BASE_URL=https://openrouter.ai/api/v1`
-- `API_KEY=...`
+- `API_KEY=...` (OpenRouter)
 - `MODEL=nvidia/nemotron-3.5-lightning:free`
-- `PORT=3000`
+- `PORT=3000` (local; Vercel administra el puerto)
+- `SUPABASE_URL=https://...supabase.co`
+- `SUPABASE_SECRET_KEY=sb_secret_...` (solo backend)
 
-## Ejecutar
+Para proyectos que todavía usan la clave legacy, también se acepta `SUPABASE_SERVICE_ROLE_KEY`. La clave secreta nunca debe incluirse en el frontend ni subirse a GitHub.
+
+## SQL de Supabase
+Ejecutá una vez en Supabase > SQL Editor:
+
+```sql
+create table if not exists public.brands (
+  id text primary key,
+  plan text default 'trial',
+  transcript jsonb not null default '[]'::jsonb,
+  profile jsonb,
+  calendar jsonb,
+  updated_at timestamptz not null default now()
+);
+
+alter table public.brands enable row level security;
+```
+
+El backend utiliza la clave secreta de Supabase, que tiene acceso privilegiado y evita exponer credenciales en el navegador.
+
+## Ejecutar localmente
 ```bash
 npm install
 npm start
 ```
-Abrir http://localhost:3000.
+Abrí http://localhost:3000. Para comprobar el backend: http://localhost:3000/api/health.
 
-El backend usa `POST /chat/completions` de OpenRouter desde el servidor. La clave no se expone al navegador. Los endpoints de Sellia (`/api/onboarding`, `/api/profile`, `/api/calendar`, `/api/copy`) mantienen su formato original.
+## Deploy en Vercel
+En Settings > Environment Variables configurá `BASE_URL`, `API_KEY`, `MODEL`, `SUPABASE_URL` y `SUPABASE_SECRET_KEY` para Production (y Preview si corresponde). Después hacé Redeploy.
 
-Requisito: Node.js 20.6+ (usa `--env-file` y `fetch` nativos).
+Los endpoints `/api/onboarding`, `/api/profile`, `/api/calendar` y `/api/copy` conservan sus rutas y contratos. El estado de cada marca se guarda en Supabase, no en un archivo local.

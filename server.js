@@ -114,7 +114,6 @@ const ask = async (system, messages, max = 4000) => {
         { role: 'system', content: system },
         ...messages
       ],
-      reasoning: { enabled: false },
       max_tokens: max,
       temperature: 0.7
     }),

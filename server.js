@@ -202,6 +202,13 @@ app.post('/api/copy', wrap(async ({ brandId, piece }) => {
 }));
 
 // Endpoint simple para comprobar que el backend y las variables esenciales arrancaron.
+app.get('/api/brand', async (req, res) => {
+  try {
+    const b = await getBrand(String(req.query.id || ''));
+    res.json({ transcript: b.transcript || [], profile: b.profile, calendar: b.calendar, plan: b.plan });
+  } catch (e) { console.error(e); res.status(500).json({ error: e.message }); }
+});
+
 app.get('/api/health', (_req, res) => res.json({ ok: true, storage: 'supabase', model: MODEL }));
 
 app.listen(process.env.PORT || 3000, () => console.log('Sellia MVP en puerto ' + (process.env.PORT || 3000)));
